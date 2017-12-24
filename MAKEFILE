@@ -1,0 +1,46 @@
+MODEL = l
+CC = tcc
+CFLAGS = -m$(MODEL) -Isrc -w- -c
+LINKER = tlink
+LIBPATH = C:\TC\LIB
+LDSTART = $(LIBPATH)\c0$(MODEL)
+LDLIBS = $(LIBPATH)\c$(MODEL)
+LDFLAGS = /L$(LIBPATH)
+
+all : nyancat.exe
+
+ram.obj : src\ram.c src\ram.h
+	$(CC) $(CFLAGS) src\ram.c
+
+dma.obj : src\dma.c src\dma.h
+	$(CC) $(CFLAGS) src\dma.c
+
+irq.obj : src\irq.c src\irq.h
+	$(CC) $(CFLAGS) src\irq.c
+
+sndblast.obj : src\sndblast.c src\sndblast.h src\ram.h src\dma.h src\irq.h
+	$(CC) $(CFLAGS) src\sndblast.c
+
+wav.obj : src\wav.c src\wav.h src\ram.h src\sndblast.h
+	$(CC) $(CFLAGS) src\wav.c
+
+screen.obj : src\screen.c src\screen.h
+	$(CC) $(CFLAGS) src\screen.c
+
+nyancat.obj : src\nyancat.c src\nyananim.h src\screen.h src\ram.h src\dma.h src\irq.h src\sndblast.h src\wav.h
+	cd tools
+	make
+	cd ..
+	$(CC) $(CFLAGS) src\nyancat.c
+
+nyancat.exe : ram.obj dma.obj irq.obj sndblast.obj wav.obj screen.obj nyancat.obj
+	$(LINKER) $(LDSTART) ram dma irq sndblast wav screen nyancat, nyancat.exe,, $(LDLIBS) $(LDFLAGS)
+
+clean :
+	del *.obj
+	del *.exe
+	del *.map
+
+zip:
+	pkzip -Pr nyansrc.zip data\*.bmp tools\*.c tools\make*.* src\*.* make*.* *.txt
+	pkzip nyancat.zip nyancat.exe nyanloop.wav *.txt

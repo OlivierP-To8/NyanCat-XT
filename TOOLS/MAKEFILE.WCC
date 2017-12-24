@@ -1,0 +1,137 @@
+CC = wcc
+CFLAGS = -0 -ml -d0
+LINKER = wlink
+LFLAGS =
+
+all : cga_data.exe ega_data.exe egahdata.exe vga_data.exe
+
+cga_data.exe :
+	$(CC) $(CFLAGS) cga_data.c
+	$(LINKER) $(LFLAGS) name $@ file { cga_data.obj }
+	del nyandata.h
+	cga_data.exe ..\data\arc_1.bmp ARC1_CGA >> nyandata.h
+	cga_data.exe ..\data\arc_2.bmp ARC2_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_1.bmp MIX1_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_2.bmp MIX2_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_3.bmp MIX3_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_4.bmp MIX4_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_5.bmp MIX5_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_6.bmp MIX6_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_7.bmp MIX7_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_8.bmp MIX8_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_9.bmp MIX9_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_A.bmp MIXA_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_B.bmp MIXB_CGA >> nyandata.h
+	cga_data.exe ..\data\mix_C.bmp MIXC_CGA >> nyandata.h
+	cga_data.exe ..\data\cat_1.bmp CAT1_CGA >> nyandata.h
+	cga_data.exe ..\data\cat_2.bmp CAT2_CGA >> nyandata.h
+	cga_data.exe ..\data\cat_3.bmp CAT3_CGA >> nyandata.h
+	cga_data.exe ..\data\cat_4.bmp CAT4_CGA >> nyandata.h
+	cga_data.exe ..\data\cat_5.bmp CAT5_CGA >> nyandata.h
+	cga_data.exe ..\data\cat_6.bmp CAT6_CGA >> nyandata.h
+	cga_data.exe ..\data\star_1.bmp STAR1_CGA >> nyandata.h
+	cga_data.exe ..\data\star_2.bmp STAR2_CGA >> nyandata.h
+	cga_data.exe ..\data\star_3.bmp STAR3_CGA >> nyandata.h
+	cga_data.exe ..\data\star_4.bmp STAR4_CGA >> nyandata.h
+	cga_data.exe ..\data\star_5.bmp STAR5_CGA >> nyandata.h
+	cga_data.exe ..\data\star_6.bmp STAR6_CGA >> nyandata.h
+	cga_data.exe ..\data\star_7.bmp STAR7_CGA >> nyandata.h
+
+ega_data.exe :
+	$(CC) $(CFLAGS) ega_data.c
+	$(LINKER) $(LFLAGS) name $@ file { ega_data.obj }
+	ega_data.exe ..\data\arc_1.bmp ARC1_EGA >> nyandata.h
+	ega_data.exe ..\data\arc_2.bmp ARC2_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_1.bmp MIX1_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_2.bmp MIX2_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_3.bmp MIX3_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_4.bmp MIX4_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_5.bmp MIX5_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_6.bmp MIX6_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_7.bmp MIX7_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_8.bmp MIX8_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_9.bmp MIX9_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_A.bmp MIXA_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_B.bmp MIXB_EGA >> nyandata.h
+	ega_data.exe ..\data\mix_C.bmp MIXC_EGA >> nyandata.h
+	ega_data.exe ..\data\cat_1.bmp CAT1_EGA >> nyandata.h
+	ega_data.exe ..\data\cat_2.bmp CAT2_EGA >> nyandata.h
+	ega_data.exe ..\data\cat_3.bmp CAT3_EGA >> nyandata.h
+	ega_data.exe ..\data\cat_4.bmp CAT4_EGA >> nyandata.h
+	ega_data.exe ..\data\cat_5.bmp CAT5_EGA >> nyandata.h
+	ega_data.exe ..\data\cat_6.bmp CAT6_EGA >> nyandata.h
+	ega_data.exe ..\data\star_1.bmp STAR1_EGA >> nyandata.h
+	ega_data.exe ..\data\star_2.bmp STAR2_EGA >> nyandata.h
+	ega_data.exe ..\data\star_3.bmp STAR3_EGA >> nyandata.h
+	ega_data.exe ..\data\star_4.bmp STAR4_EGA >> nyandata.h
+	ega_data.exe ..\data\star_5.bmp STAR5_EGA >> nyandata.h
+	ega_data.exe ..\data\star_6.bmp STAR6_EGA >> nyandata.h
+	ega_data.exe ..\data\star_7.bmp STAR7_EGA >> nyandata.h
+
+egahdata.exe :
+	$(CC) $(CFLAGS) egahdata.c
+	$(LINKER) $(LFLAGS) name $@ file { egahdata.obj }
+	egahdata.exe ..\data\arc_1.bmp ARC1_EGAH >> nyandata.h
+	egahdata.exe ..\data\arc_2.bmp ARC2_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_1.bmp MIX1_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_2.bmp MIX2_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_3.bmp MIX3_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_4.bmp MIX4_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_5.bmp MIX5_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_6.bmp MIX6_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_7.bmp MIX7_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_8.bmp MIX8_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_9.bmp MIX9_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_A.bmp MIXA_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_B.bmp MIXB_EGAH >> nyandata.h
+	egahdata.exe ..\data\mix_C.bmp MIXC_EGAH >> nyandata.h
+	egahdata.exe ..\data\cat_1.bmp CAT1_EGAH >> nyandata.h
+	egahdata.exe ..\data\cat_2.bmp CAT2_EGAH >> nyandata.h
+	egahdata.exe ..\data\cat_3.bmp CAT3_EGAH >> nyandata.h
+	egahdata.exe ..\data\cat_4.bmp CAT4_EGAH >> nyandata.h
+	egahdata.exe ..\data\cat_5.bmp CAT5_EGAH >> nyandata.h
+	egahdata.exe ..\data\cat_6.bmp CAT6_EGAH >> nyandata.h
+	egahdata.exe ..\data\star_1.bmp STAR1_EGAH >> nyandata.h
+	egahdata.exe ..\data\star_2.bmp STAR2_EGAH >> nyandata.h
+	egahdata.exe ..\data\star_3.bmp STAR3_EGAH >> nyandata.h
+	egahdata.exe ..\data\star_4.bmp STAR4_EGAH >> nyandata.h
+	egahdata.exe ..\data\star_5.bmp STAR5_EGAH >> nyandata.h
+	egahdata.exe ..\data\star_6.bmp STAR6_EGAH >> nyandata.h
+	egahdata.exe ..\data\star_7.bmp STAR7_EGAH >> nyandata.h
+
+vga_data.exe :
+	$(CC) $(CFLAGS) vga_data.c
+	$(LINKER) $(LFLAGS) name $@ file { vga_data.obj }
+	vga_data.exe ..\data\arc_1.bmp ARC1_VGA >> nyandata.h
+	vga_data.exe ..\data\arc_2.bmp ARC2_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_1.bmp MIX1_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_2.bmp MIX2_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_3.bmp MIX3_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_4.bmp MIX4_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_5.bmp MIX5_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_6.bmp MIX6_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_7.bmp MIX7_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_8.bmp MIX8_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_9.bmp MIX9_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_A.bmp MIXA_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_B.bmp MIXB_VGA >> nyandata.h
+	vga_data.exe ..\data\mix_C.bmp MIXC_VGA >> nyandata.h
+	vga_data.exe ..\data\cat_1.bmp CAT1_VGA >> nyandata.h
+	vga_data.exe ..\data\cat_2.bmp CAT2_VGA >> nyandata.h
+	vga_data.exe ..\data\cat_3.bmp CAT3_VGA >> nyandata.h
+	vga_data.exe ..\data\cat_4.bmp CAT4_VGA >> nyandata.h
+	vga_data.exe ..\data\cat_5.bmp CAT5_VGA >> nyandata.h
+	vga_data.exe ..\data\cat_6.bmp CAT6_VGA >> nyandata.h
+	vga_data.exe ..\data\star_1.bmp STAR1_VGA >> nyandata.h
+	vga_data.exe ..\data\star_2.bmp STAR2_VGA >> nyandata.h
+	vga_data.exe ..\data\star_3.bmp STAR3_VGA >> nyandata.h
+	vga_data.exe ..\data\star_4.bmp STAR4_VGA >> nyandata.h
+	vga_data.exe ..\data\star_5.bmp STAR5_VGA >> nyandata.h
+	vga_data.exe ..\data\star_6.bmp STAR6_VGA >> nyandata.h
+	vga_data.exe ..\data\star_7.bmp STAR7_VGA >> nyandata.h
+	copy nyandata.h ..\src
+
+clean :
+	del *.obj
+	del *.exe
+	del nyandata.h

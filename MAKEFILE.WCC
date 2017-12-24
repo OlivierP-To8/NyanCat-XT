@@ -1,0 +1,41 @@
+CC = wcc
+CFLAGS = -0 -ml -d0
+LINKER = wlink
+LFLAGS =
+
+all : nyancat.exe
+
+ram.obj : src\ram.c src\ram.h
+	$(CC) $(CFLAGS) src\ram.c
+
+dma.obj : src\dma.c src\dma.h
+	$(CC) $(CFLAGS) src\dma.c
+
+irq.obj : src\irq.c src\irq.h
+	$(CC) $(CFLAGS) src\irq.c
+
+sndblast.obj : src\sndblast.c src\sndblast.h src\ram.h src\dma.h src\irq.h
+	$(CC) $(CFLAGS) src\sndblast.c
+
+wav.obj : src\wav.c src\wav.h src\ram.h src\sndblast.h
+	$(CC) $(CFLAGS) src\wav.c
+
+screen.obj : src\screen.c src\screen.h
+	$(CC) $(CFLAGS) src\screen.c
+
+nyancat.obj : src\nyancat.c src\nyananim.h src\screen.h src\ram.h src\dma.h src\irq.h src\sndblast.h src\wav.h
+	cd tools
+	wmake -f makefile.wcc
+	cd ..
+	$(CC) $(CFLAGS) src\nyancat.c
+
+nyancat.exe : ram.obj dma.obj irq.obj sndblast.obj wav.obj screen.obj nyancat.obj
+	$(LINKER) $(LFLAGS) name $@ file { ram.obj dma.obj irq.obj sndblast.obj wav.obj screen.obj nyancat.obj }
+
+clean :
+	del *.obj
+	del *.exe
+
+zip:
+	pkzip -Pr nyansrc.zip data\*.bmp tools\*.c tools\make*.* src\*.* make*.* *.txt
+	pkzip nyancat.zip nyancat.exe nyanloop.wav *.txt

@@ -1,0 +1,19 @@
+                            ********************
+                            * NyanCat pour DOS *
+                            ********************
+
+AprŠs la version TO8, voici la version TO16 du c‚lŠbre NyanCat.
+
+Ce programme devrait fonctionner sur tout PC XT qui dispose
+au minimum d'une carte CGA Plantronics ou EGA. 
+Une carte SoundBlaster est requise pour le fond sonore. La variable 
+d'environnement BLASTER doit ˆtre d‚finie dans AUTOEXEC.BAT avec les 
+valeurs correctes.
+
+Les paramŠtres suivants peuvent ˆtre modifi‚s :
+    /fps:15 (avec une valeur de 1 … 30)
+    /dsp:201 (avec une valeur hexad‚cimale pour forcer la version du DSP)
+    /dma:4096 (avec une valeur de 1 … 32768 pour la taille du buffer dma)
+    /wav:fichier.wav (avec le nom d'un autre fichier WAV)
+Si il n'y a pas assez de m‚moire conventionnelle, la m‚moire XMS sera
+utilis‚e si elle est disponible.
